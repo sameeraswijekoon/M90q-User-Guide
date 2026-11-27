@@ -810,8 +810,170 @@ how to set it up, how to use it every day, and how to look after it.</p>
 </ul></div>
 </div>
 
-<div class="grid3" style="margin-top:14px">
-<div class="card rv"><h3>Cleaning guide - 5 quiet minutes, monthly</h3><p><b>1.</b> Shut down and unplug. <b>2.</b> Screen: dry microfibre cloth, gentle circles; for stubborn marks, breathe lightly on the cloth - never spray the screen. <b>3.</b> Vents and top cover: dry cloth or soft brush. <b>4.</b> Keyboard: turn over, tap gently, wipe keys. <b>5.</b> Mouse: wipe top, clean the sensor window underneath. Plug back in - done.</p></div>
+<style>
+.cl-scene{opacity:0;transition:opacity .45s ease;pointer-events:none}
+.cl-scene.on{opacity:1}
+.cl-anim{transform-box:fill-box;transform-origin:center}
+@keyframes clWipe{0%{transform:translate(0,0)}33%{transform:translate(34px,14px)}66%{transform:translate(4px,30px)}100%{transform:translate(0,0)}}
+.cl-scene.on .cl-cloth{animation:clWipe 2.6s ease-in-out infinite}
+@keyframes clSpark{0%,100%{transform:scale(.35);opacity:.25}50%{transform:scale(1);opacity:1}}
+.cl-scene.on .cl-spark{animation:clSpark 1.5s ease-in-out infinite}
+@keyframes clFall{0%{transform:translateY(0);opacity:1}100%{transform:translateY(48px);opacity:0}}
+.cl-scene.on .cl-dust{animation:clFall 1.7s ease-in infinite}
+@keyframes clSweep{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
+.cl-scene.on .cl-brush{animation:clSweep 1.3s ease-in-out infinite}
+@keyframes clPuff{0%{transform:translate(0,0) scale(.5);opacity:0}25%{opacity:.8}100%{transform:translate(128px,-8px) scale(1.6);opacity:0}}
+.cl-scene.on .cl-puff{animation:clPuff 1.9s ease-out infinite}
+@keyframes clPop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.1);opacity:1}100%{transform:scale(1);opacity:1}}
+.cl-scene.on .cl-pop{animation:clPop .7s ease both}
+@keyframes clGlow{0%,100%{opacity:.25}50%{opacity:.95}}
+.cl-scene.on .cl-glow{animation:clGlow 1.4s ease-in-out infinite}
+@keyframes clSlide{0%{transform:translateX(0)}100%{transform:translateX(26px)}}
+.cl-scene.on .cl-plug{animation:clSlide 1.2s ease-out both}
+</style>
+<div class="player rv" id="cleanPlayer">
+<div class="kick">Animated guide</div>
+<h3 style="font-size:20px;margin:4px 0 2px">Cleaning guide - watch it play</h3>
+<p style="color:var(--mut);font-size:14px;margin:0 0 4px">Five quiet minutes, once a month. Tap any step on the left, or let it play by itself.</p>
+<div class="player-grid">
+<div class="player-steps" id="clSteps">
+<button class="pstep act" type="button" data-i="0"><span class="n">1</span><span><h4>Switch off and unplug</h4><p>Shut the PC down fully and pull the power plug out. Never clean a PC that is switched on or plugged in.</p></span></button>
+<button class="pstep" type="button" data-i="1"><span class="n">2</span><span><h4>Get the kit ready</h4><p>A soft microfibre cloth, a small soft brush, a hand air blower and cotton swabs. Nothing else - no sprays, no wet wipes.</p></span></button>
+<button class="pstep" type="button" data-i="2"><span class="n">3</span><span><h4>Screen - dry cloth first</h4><p>Wipe the screen with the dry cloth in slow circles. For a stubborn mark, dampen a corner of the cloth with plain water. Never spray the screen itself.</p></span></button>
+<button class="pstep" type="button" data-i="3"><span class="n">4</span><span><h4>Keyboard - shake and brush</h4><p>Unplug it, turn it over and tap gently to drop the crumbs out. Brush between the keys, then wipe the key tops.</p></span></button>
+<button class="pstep" type="button" data-i="4"><span class="n">5</span><span><h4>Mouse - top and sensor</h4><p>Wipe the body, then clean the small sensor window underneath with a dry cotton swab. A clean sensor tracks smoothly.</p></span></button>
+<button class="pstep" type="button" data-i="5"><span class="n">6</span><span><h4>PC body and vents</h4><p>Brush and blow the dust off the side vents and the back panel. Wipe the body with the dry cloth. Keep the vents clear - they are how the Tiny breathes.</p></span></button>
+<button class="pstep" type="button" data-i="6"><span class="n">7</span><span><h4>Make it a habit</h4><p>Screen and keyboard weekly if you can, the full clean once a month. Five quiet minutes keeps the set cool, quiet and fast.</p></span></button>
+</div>
+<div class="player-stage">
+<svg class="anim-stage" id="cleanStage" viewBox="0 0 640 360" role="img" aria-label="Animated cleaning guide">
+<line x1="30" y1="302" x2="610" y2="302" stroke="#d9d9dc" stroke-width="2"/>
+<g>
+<rect x="205" y="70" width="250" height="158" rx="10" fill="#26272c"/>
+<rect x="217" y="82" width="226" height="134" fill="#101114"/>
+<rect x="318" y="228" width="24" height="34" fill="#26272c"/>
+<rect x="275" y="262" width="110" height="10" rx="4" fill="#26272c"/>
+<rect x="505" y="150" width="48" height="150" rx="8" fill="#1d1e22" stroke="#3a3b40"/>
+<rect x="235" y="300" width="190" height="26" rx="7" fill="#26272c"/>
+</g>
+<g class="cl-scene" data-i="0">
+<g class="cl-plug">
+<rect x="560" y="196" width="26" height="20" rx="4" fill="#3a3b40"/>
+<rect x="586" y="201" width="12" height="4" fill="#8a8a91"/><rect x="586" y="208" width="12" height="4" fill="#8a8a91"/>
+</g>
+<rect x="606" y="188" width="16" height="36" rx="3" fill="#e7ddf0" stroke="#c9a8d8"/>
+<circle cx="534" cy="168" r="4.5" fill="#8a8a91"/>
+<text x="480" y="180" fill="#b4232a" font-size="13" font-weight="800">OFF</text>
+<path d="M470,196 h56" stroke="#b4232a" stroke-width="2.5" stroke-dasharray="5 4"/>
+</g>
+<g class="cl-scene" data-i="1">
+<g class="cl-pop" style="animation-delay:.05s"><rect x="70" y="120" width="72" height="50" rx="8" fill="#7b1e7a"/><rect x="70" y="120" width="72" height="16" rx="8" fill="#d81b7a"/><text x="106" y="192" fill="#55486a" font-size="11" font-weight="700" text-anchor="middle">CLOTH</text></g>
+<g class="cl-pop" style="animation-delay:.25s"><rect x="86" y="216" width="8" height="52" rx="4" fill="#8a5a2b" transform="rotate(24 90 242)"/><rect x="66" y="196" width="30" height="18" rx="5" fill="#d9a41c"/><text x="82" y="292" fill="#55486a" font-size="11" font-weight="700" text-anchor="middle">BRUSH</text></g>
+<g class="cl-pop" style="animation-delay:.45s"><ellipse cx="180" cy="240" rx="26" ry="34" fill="#2f6fd0"/><rect x="172" y="200" width="16" height="14" rx="3" fill="#3a3b40"/><text x="180" y="292" fill="#55486a" font-size="11" font-weight="700" text-anchor="middle">BLOWER</text></g>
+<g class="cl-pop" style="animation-delay:.65s"><rect x="238" y="212" width="5" height="56" rx="2.5" fill="#e8b64c" transform="rotate(-14 240 240)"/><circle cx="228" cy="206" r="9" fill="#ffffff" stroke="#d9d9dc"/><text x="238" y="292" fill="#55486a" font-size="11" font-weight="700" text-anchor="middle">SWABS</text></g>
+</g>
+<g class="cl-scene" data-i="2">
+<rect x="217" y="82" width="226" height="134" fill="#3f8fdb" opacity="0.28"/>
+<g class="cl-cloth"><rect x="262" y="104" width="66" height="46" rx="9" fill="#d81b7a"/><rect x="262" y="104" width="66" height="14" rx="7" fill="#e91e7f"/></g>
+<path class="cl-spark cl-anim" style="animation-delay:.1s" d="M392,96 l4,10 10,4 -10,4 -4,10 -4,-10 -10,-4 10,-4 z" fill="#e8b64c"/>
+<path class="cl-spark cl-anim" style="animation-delay:.55s" d="M248,178 l3,8 8,3 -8,3 -3,8 -3,-8 -8,-3 8,-3 z" fill="#e8b64c"/>
+<path class="cl-spark cl-anim" style="animation-delay:.95s" d="M404,182 l3,8 8,3 -8,3 -3,8 -3,-8 -8,-3 8,-3 z" fill="#e8b64c"/>
+</g>
+<g class="cl-scene" data-i="3">
+<g transform="rotate(-9 330 313)">
+<rect x="235" y="300" width="190" height="26" rx="7" fill="#3a3b40"/>
+<rect x="247" y="308" width="166" height="4" rx="2" fill="#8a8a91"/><rect x="247" y="316" width="120" height="4" rx="2" fill="#8a8a91"/>
+</g>
+<circle class="cl-dust" cx="290" cy="330" r="3.5" fill="#b9a86b"/>
+<circle class="cl-dust" style="animation-delay:.4s" cx="330" cy="334" r="2.6" fill="#b9a86b"/>
+<circle class="cl-dust" style="animation-delay:.8s" cx="368" cy="330" r="3.2" fill="#b9a86b"/>
+<circle class="cl-dust" style="animation-delay:1.2s" cx="312" cy="336" r="2.2" fill="#b9a86b"/>
+<g class="cl-brush cl-anim"><rect x="392" y="252" width="9" height="46" rx="4" fill="#8a5a2b"/><rect x="378" y="238" width="36" height="17" rx="5" fill="#d9a41c"/></g>
+</g>
+<g class="cl-scene" data-i="4">
+<ellipse cx="330" cy="176" rx="86" ry="104" fill="#26272c"/>
+<ellipse cx="330" cy="176" rx="86" ry="104" fill="none" stroke="#3a3b40" stroke-width="2"/>
+<line x1="330" y1="76" x2="330" y2="150" stroke="#3a3b40" stroke-width="3"/>
+<circle class="cl-glow" cx="330" cy="212" r="17" fill="#e2231a"/>
+<circle cx="330" cy="212" r="9" fill="#101114"/>
+<g class="cl-brush cl-anim"><rect x="392" y="196" width="6" height="52" rx="3" fill="#e8b64c" transform="rotate(18 395 222)"/><circle cx="404" cy="192" r="10" fill="#ffffff" stroke="#d9d9dc"/></g>
+<text x="330" y="306" fill="#55486a" font-size="11" font-weight="700" text-anchor="middle">SENSOR - CLEAN IT GENTLY</text>
+</g>
+<g class="cl-scene" data-i="5">
+<g><ellipse cx="128" cy="216" rx="30" ry="38" fill="#2f6fd0"/><rect x="120" y="172" width="16" height="14" rx="3" fill="#3a3b40"/></g>
+<ellipse class="cl-puff" cx="168" cy="206" rx="15" ry="9" fill="#cfd8e3"/>
+<ellipse class="cl-puff" style="animation-delay:.6s" cx="168" cy="228" rx="12" ry="7" fill="#cfd8e3"/>
+<ellipse class="cl-puff" style="animation-delay:1.2s" cx="168" cy="250" rx="15" ry="9" fill="#cfd8e3"/>
+<rect x="505" y="150" width="48" height="150" rx="8" fill="#1d1e22" stroke="#3a3b40"/>
+<rect x="512" y="168" width="5" height="104" fill="#3a3b40"/><rect x="522" y="168" width="5" height="104" fill="#3a3b40"/><rect x="532" y="168" width="5" height="104" fill="#3a3b40"/>
+<circle class="cl-dust" cx="486" cy="190" r="3" fill="#b9a86b"/>
+<circle class="cl-dust" style="animation-delay:.5s" cx="478" cy="226" r="2.4" fill="#b9a86b"/>
+<circle class="cl-dust" style="animation-delay:1s" cx="488" cy="258" r="2.8" fill="#b9a86b"/>
+<text x="330" y="60" fill="#55486a" font-size="12" font-weight="700" text-anchor="middle">BLOW THE DUST OUT OF THE VENTS</text>
+</g>
+<g class="cl-scene" data-i="6">
+<g class="cl-pop"><rect x="238" y="96" width="164" height="140" rx="12" fill="#ffffff" stroke="#e7ddf0" stroke-width="2"/>
+<rect x="238" y="96" width="164" height="34" rx="12" fill="#d81b7a"/>
+<text x="320" y="118" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">EVERY MONTH</text>
+<circle cx="272" cy="156" r="6" fill="#e7ddf0"/><circle cx="320" cy="156" r="6" fill="#e7ddf0"/><circle cx="368" cy="156" r="6" fill="#e7ddf0"/>
+<circle cx="272" cy="190" r="6" fill="#e7ddf0"/><circle cx="320" cy="190" r="6" fill="#177245"/><circle cx="368" cy="190" r="6" fill="#e7ddf0"/>
+</g>
+<g class="cl-pop" style="animation-delay:.35s;transform-origin:452px 92px"><circle cx="452" cy="92" r="21" fill="#177245" stroke="#ffffff" stroke-width="3"/>
+<path d="M441,92 l8,8 l15,-16" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+<path class="cl-spark cl-anim" style="animation-delay:.2s" d="M120,110 l4,10 10,4 -10,4 -4,10 -4,-10 -10,-4 10,-4 z" fill="#e8b64c"/>
+<path class="cl-spark cl-anim" style="animation-delay:.7s" d="M520,140 l3,8 8,3 -8,3 -3,8 -3,-8 -8,-3 8,-3 z" fill="#e8b64c"/>
+</g>
+</svg>
+<div class="anim-prog" style="background:var(--chip)"><i id="clBar"></i></div>
+<div class="anim-ctrl">
+<button class="pbtn" id="clPrev" type="button">&#8592; Back</button>
+<button class="pbtn" id="clPlay" type="button">Pause</button>
+<button class="pbtn" id="clNext" type="button">Next &#8594;</button>
+<div class="anim-dots" id="clDots"></div>
+<span style="color:var(--mut);font-size:12.5px">Auto-plays - click any step on the left, hover to pause</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+(function(){
+  var MS = 5200, RED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var idx = 0, playing = !RED, timer = null, hover = false;
+  var card = document.getElementById("cleanPlayer");
+  var scenes = card.querySelectorAll(".cl-scene");
+  var steps = card.querySelectorAll(".pstep");
+  var dotsBox = document.getElementById("clDots");
+  var bar = document.getElementById("clBar");
+  steps.forEach(function(b, i){
+    var d = document.createElement("button"); d.type = "button"; d.className = "anim-dot";
+    d.setAttribute("aria-label", "Cleaning step " + (i + 1));
+    d.addEventListener("click", function(){ idx = i; render(); restart(); });
+    dotsBox.appendChild(d);
+    b.addEventListener("click", function(){ idx = i; render(); restart(); });
+  });
+  function freeze(){ var w = getComputedStyle(bar).width; bar.style.transition = "none"; bar.style.width = w; }
+  function run(){ bar.style.transition = "none"; bar.style.width = "0px"; void bar.offsetWidth;
+    bar.style.transition = "width " + MS + "ms linear"; bar.style.width = "100%"; }
+  function render(){
+    scenes.forEach(function(s, i){ s.classList.toggle("on", i === idx); });
+    steps.forEach(function(b, i){ b.classList.toggle("act", i === idx); });
+    Array.prototype.forEach.call(dotsBox.children, function(d, i){ d.classList.toggle("act", i === idx); });
+    if (playing && !hover) run(); else freeze();
+    document.getElementById("clPlay").textContent = playing ? "Pause" : "Play";
+  }
+  function restart(){ clearInterval(timer);
+    if (playing && !hover) timer = setInterval(function(){ idx = (idx + 1) % scenes.length; render(); }, MS); }
+  document.getElementById("clNext").addEventListener("click", function(){ idx = (idx + 1) % scenes.length; render(); restart(); });
+  document.getElementById("clPrev").addEventListener("click", function(){ idx = (idx - 1 + scenes.length) % scenes.length; render(); restart(); });
+  document.getElementById("clPlay").addEventListener("click", function(){ playing = !playing; render(); restart(); });
+  card.addEventListener("mouseenter", function(){ hover = true; clearInterval(timer); freeze(); });
+  card.addEventListener("mouseleave", function(){ hover = false; if (playing) { run(); restart(); } });
+  render(); restart();
+})();
+</script>
+
+<div class="grid2" style="margin-top:14px">
+
 <div class="card rv"><h3>Sit comfortably - your body is part of the setup</h3><p>Screen about an arm's length away, top of the screen at or just below eye level - tilt the monitor (-5 to +22 degrees) to suit you. Feet flat, back supported, elbows near 90 degrees. Every 20 minutes, look at something far away for 20 seconds. If your eyes tire, turn on Night light (Settings, then System, then Display) and raise text size instead of leaning in.</p></div>
 <div class="card rv"><h3>Moving the PC, and power events</h3><p><b>Moving:</b> shut down fully, unplug everything (label the cables first), carry the Tiny in two hands or its box, and the monitor by its stand. <b>Power cut:</b> if you have a UPS, save and shut down calmly; without one, the PC simply stops - switch it on again when power is stable, and let Windows run its checks. <b>After any surge or lightning strike nearby:</b> if the PC behaves strangely, tell your IT team before using it further.</p></div>
 </div>
@@ -956,7 +1118,200 @@ how to set it up, how to use it every day, and how to look after it.</p>
 
 </div>
 <div class="note rv">Still stuck after these checks? Do not open the PC - contact your IT team or Abans service. A photo of the error (Windows key + Shift + S) and the serial number from the label on the Tiny will help them fix it faster.</div>
-</section></div></div><div class="frame" data-title="Full Specs" data-hash="specs" data-x="700" data-y="3800" data-w="1240" data-h="780" data-r="0.6" style="left:700px;top:3800px;width:1240px;height:780px;transform:translate(-50%,-50%) rotate(0.6deg)"><div class="ftag">10 - Full Specs</div><div class="scrollbox"><section id="specs">
+</section></div></div><div class="frame" data-title="Office Activation" data-hash="office" data-x="700" data-y="3800" data-w="1240" data-h="780" data-r="0.6" style="left:700px;top:3800px;width:1240px;height:780px;transform:translate(-50%,-50%) rotate(0.6deg)"><div class="ftag">10 - Office Activation</div><div class="scrollbox"><section id="office">
+<div class="sec-head"><div class="kick">Microsoft Office</div>
+<h2>Check Office is activated - and fix it if not</h2>
+<p class="sub">Word, Excel and PowerPoint only work fully when Microsoft Office is activated. Checking takes 30 seconds. If yours is not activated yet, the animated guide below shows both ways to fix it - sign in with the Microsoft account, or type the product key.</p></div>
+
+<style>
+.of-stage{background:#f6f2fa;border-radius:14px;padding:16px}
+.of-win{position:relative;background:#fff;border:1px solid #d8d2e4;border-radius:10px;overflow:hidden;
+box-shadow:0 14px 30px rgba(74,20,88,.14);font-size:13px;color:#2b2135;text-align:left}
+.of-title{background:#2b579a;color:#fff;padding:8px 12px;display:flex;align-items:center;gap:8px;font-weight:700}
+.of-title .of-lic{margin-left:auto;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;background:#f59e0b;color:#231303}
+.of-win.ok .of-lic{background:#177245;color:#fff}
+.of-ribbon{display:flex;gap:2px;background:#f3f0fa;border-bottom:1px solid #e7ddf0;padding:5px 8px 0}
+.of-tab{padding:5px 12px;border-radius:6px 6px 0 0;color:#55486a;font-weight:600}
+.of-tab.file{background:#2b579a;color:#fff}
+.of-tab.hot{box-shadow:inset 0 0 0 2px #d81b7a}
+.of-body{position:relative;min-height:308px}
+.of-doc{padding:26px 34px}
+.of-doc .ln{height:9px;border-radius:5px;background:#e7ddf0;margin-bottom:12px}
+.of-doc .ln.t{height:16px;width:55%;background:#c9b8dd;margin-bottom:18px}
+.of-doc .ln.s{width:82%}.of-doc .ln.x{width:64%}
+.of-back{display:none;height:100%}
+.of-win[data-step="1"] .of-back,.of-win[data-step="2"] .of-back,.of-win[data-step="3"] .of-back,
+.of-win[data-step="4"] .of-back,.of-win[data-step="5"] .of-back,.of-win[data-step="6"] .of-back{display:flex}
+.of-win[data-step="1"] .of-doc,.of-win[data-step="2"] .of-doc,.of-win[data-step="3"] .of-doc,
+.of-win[data-step="4"] .of-doc,.of-win[data-step="5"] .of-doc,.of-win[data-step="6"] .of-doc{display:none}
+.of-side{width:128px;background:#2b579a;color:#dbe7f7;padding:12px 0;display:flex;flex-direction:column;gap:2px;flex:none}
+.of-side span{padding:7px 16px;font-weight:600}
+.of-side span.on{background:#d81b7a;color:#fff}
+.of-page{padding:20px 22px;flex:1}
+.of-page h4{margin:0 0 2px;font-size:17px}
+.of-page .lbl{color:#6f6480;font-size:12px;font-weight:700;letter-spacing:.4px;margin:14px 0 8px}
+.of-status{border:1.5px solid #f59e0b;background:#fff7e6;border-radius:10px;padding:12px 14px;max-width:340px}
+.of-status b{font-size:15.5px;color:#92400e;display:block}
+.of-status small{color:#6f6480}
+.of-win.ok .of-status{border-color:#177245;background:#e9f7ef}
+.of-win.ok .of-status b{color:#177245}
+.of-win[data-step="2"] .of-status,.of-win[data-step="6"] .of-status{box-shadow:0 0 0 4px rgba(216,27,122,.18)}
+.of-btns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.of-btn{background:#2b579a;color:#fff;border:0;font-weight:700;font-size:12.5px;padding:8px 16px;border-radius:7px}
+.of-btn.ghost{background:#fff;color:#2b579a;border:1.5px solid #2b579a}
+.of-win[data-step="3"] .of-btn.sign{box-shadow:0 0 0 4px rgba(216,27,122,.35)}
+.of-win[data-step="5"] .of-btn.keyb{box-shadow:0 0 0 4px rgba(216,27,122,.35)}
+.of-dlg{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%) scale(.96);width:300px;background:#fff;
+border:1px solid #d8d2e4;border-radius:12px;box-shadow:0 22px 44px rgba(43,33,53,.28);padding:18px;opacity:0;pointer-events:none;transition:opacity .45s ease,transform .45s ease}
+.of-dlg h5{margin:0 0 4px;font-size:15px}
+.of-dlg p{margin:0 0 10px;color:#6f6480;font-size:12px}
+.of-field{border:1.5px solid #b9a8d8;border-radius:7px;padding:8px 10px;min-height:34px;font-size:13px;margin-bottom:9px;background:#fff}
+.of-field.mono{font-family:Consolas,monospace;letter-spacing:1px;font-size:12.5px}
+.of-caret{display:inline-block;width:2px;height:14px;background:#2b579a;vertical-align:-2px;animation:ofBlink 1s steps(1) infinite}
+@keyframes ofBlink{50%{opacity:0}}
+.of-dlg .of-btn{width:100%;text-align:center}
+.of-win[data-step="3"] .of-sign,.of-win[data-step="4"] .of-sign{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.of-win[data-step="5"] .of-key{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.of-cursor{position:absolute;width:22px;height:22px;z-index:6;pointer-events:none;filter:drop-shadow(0 3px 5px rgba(43,33,53,.4));
+transition:left .9s cubic-bezier(.6,0,.2,1),top .9s cubic-bezier(.6,0,.2,1)}
+.of-tick{position:absolute;right:16px;bottom:14px;width:46px;height:46px;border-radius:50%;background:#177245;color:#fff;
+display:none;align-items:center;justify-content:center;font-size:24px;font-weight:800;box-shadow:0 10px 22px rgba(23,114,69,.4)}
+.of-win.ok .of-tick{display:flex;animation:ofPop .6s ease both}
+@keyframes ofPop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.12);opacity:1}100%{transform:scale(1);opacity:1}}
+</style>
+
+<div class="player rv" id="officePlayer">
+<div class="kick">Animated guide</div>
+<h3 style="font-size:20px;margin:4px 0 2px">Activating Office - watch it play</h3>
+<p style="color:var(--mut);font-size:14px;margin:0 0 4px">Follow the steps on the left - the window on the right shows exactly where to click and what to type.</p>
+<div class="player-grid">
+<div class="player-steps" id="ofSteps">
+<button class="pstep act" type="button" data-i="0"><span class="n">1</span><span><h4>Open Word, click File</h4><p>Open Word (or Excel or PowerPoint). Click <b>File</b> at the very top left of the window.</p></span></button>
+<button class="pstep" type="button" data-i="1"><span class="n">2</span><span><h4>Click Account</h4><p>In the blue File menu, click <b>Account</b> near the bottom of the list.</p></span></button>
+<button class="pstep" type="button" data-i="2"><span class="n">3</span><span><h4>Read the status</h4><p>Look at <b>Product Information</b>. Green <b>Product Activated</b> means you are done - stop here. <b>Activation Required</b> means continue with the next steps.</p></span></button>
+<button class="pstep" type="button" data-i="3"><span class="n">4</span><span><h4>Click Sign in</h4><p>On the Account page, click <b>Sign in</b>. Use this way if your Office licence belongs to a Microsoft account.</p></span></button>
+<button class="pstep" type="button" data-i="4"><span class="n">5</span><span><h4>Sign in with the Microsoft account</h4><p>Type the email and password of the account the licence belongs to, click <b>Sign in</b>, and wait a few seconds while Office activates. You need the internet for this.</p></span></button>
+<button class="pstep" type="button" data-i="5"><span class="n">6</span><span><h4>Or enter the product key instead</h4><p>No account? Click <b>Change product key</b> and type the 25-character key from your licence card or the email from your supplier, then click <b>Activate</b>.</p></span></button>
+<button class="pstep" type="button" data-i="6"><span class="n">7</span><span><h4>Done - Product Activated</h4><p>The status turns green: <b>Product Activated</b>. Close and reopen Word - the activation warning is gone and every feature works.</p></span></button>
+</div>
+<div class="player-stage">
+<div class="of-stage">
+<div class="of-win" id="ofWin" data-step="0">
+<div class="of-title"><span>Document1 - Word</span><span class="of-lic" id="ofLicTag">Activation Required</span></div>
+<div class="of-ribbon"><span class="of-tab file" id="ofFileTab">File</span><span class="of-tab">Home</span><span class="of-tab">Insert</span><span class="of-tab">Design</span><span class="of-tab">Layout</span><span class="of-tab">References</span></div>
+<div class="of-body">
+<div class="of-doc"><div class="ln t"></div><div class="ln"></div><div class="ln s"></div><div class="ln"></div><div class="ln x"></div><div class="ln s"></div></div>
+<div class="of-back">
+<div class="of-side"><span>&#8592; Back</span><span>Info</span><span>New</span><span>Open</span><span>Save</span><span>Print</span><span>Share</span><span class="on">Account</span><span>Options</span></div>
+<div class="of-page"><h4>Account</h4>
+<div class="lbl">PRODUCT INFORMATION</div>
+<div class="of-status"><b id="ofStatusTxt">Activation Required</b><small>Microsoft Office - this copy is not activated yet</small></div>
+<div class="of-btns"><button class="of-btn sign" type="button">Sign in</button><button class="of-btn ghost keyb" type="button">Change product key</button></div>
+</div>
+</div>
+<div class="of-dlg of-sign"><h5>Sign in</h5><p>Use the Microsoft account your Office licence belongs to.</p>
+<div class="of-field"><span id="ofEmail"></span><span class="of-caret"></span></div>
+<div class="of-field"><span id="ofPass"></span></div>
+<button class="of-btn" type="button">Sign in</button></div>
+<div class="of-dlg of-key"><h5>Enter your product key</h5><p>25 characters - on your licence card or the email from your supplier.</p>
+<div class="of-field mono"><span id="ofKeyTxt"></span><span class="of-caret"></span></div>
+<button class="of-btn" type="button">Activate Office</button></div>
+<div class="of-tick">&#10003;</div>
+<svg class="of-cursor" id="ofCursor" viewBox="0 0 24 24" style="left:6%;top:13%"><path d="M4,2 L20,12 L12.5,13.5 L15.5,21 L12.5,22.5 L9.5,14.5 L4,19 Z" fill="#2b2135" stroke="#fff" stroke-width="1.6"/></svg>
+</div>
+</div>
+</div>
+<div class="anim-prog" style="background:var(--chip)"><i id="ofBar"></i></div>
+<div class="anim-ctrl">
+<button class="pbtn" id="ofPrev" type="button">&#8592; Back</button>
+<button class="pbtn" id="ofPlay" type="button">Pause</button>
+<button class="pbtn" id="ofNext" type="button">Next &#8594;</button>
+<div class="anim-dots" id="ofDots"></div>
+<span style="color:var(--mut);font-size:12.5px">Auto-plays - click any step on the left, hover to pause</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="grid2" style="margin-top:14px">
+<div class="card rv"><h3>Signing in - good to know</h3><ul style="margin-left:18px">
+<li>The licence lives on the Microsoft account, not on the PC. Signing in with the wrong account will not activate Office.</li>
+<li>The PC must be online the first time - activation talks to Microsoft.</li>
+<li>Wrong account signed in? On the same Account page, click Sign out, then sign in with the correct one.</li>
+</ul></div>
+<div class="card rv"><h3>Product key - good to know</h3><ul style="margin-left:18px">
+<li>The key has 25 characters in 5 groups of 5, like XXXXX-XXXXX-XXXXX-XXXXX-XXXXX.</li>
+<li>Find it on the licence card or in the email from your supplier. Keep it safe and do not share it.</li>
+<li>Type it exactly - Office checks it online and activates straight away.</li>
+</ul></div>
+</div>
+<div class="note rv">Still says Activation Required after both ways? Do not reinstall anything - note the exact message on the screen and contact Abans service (see the Support page). A photo of the message helps - press Windows + Shift + S to capture it.</div>
+
+<script>
+(function(){
+  var MS = 6200, RED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var idx = 0, playing = !RED, timer = null, hover = false, typer = null;
+  var card = document.getElementById("officePlayer");
+  var win = document.getElementById("ofWin");
+  var steps = card.querySelectorAll(".pstep");
+  var dotsBox = document.getElementById("ofDots");
+  var bar = document.getElementById("ofBar");
+  var cursor = document.getElementById("ofCursor");
+  var POS = [[6,13],[10,80],[52,38],[38,64],[56,40],[56,42],[52,38]];
+  steps.forEach(function(b, i){
+    var d = document.createElement("button"); d.type = "button"; d.className = "anim-dot";
+    d.setAttribute("aria-label", "Office step " + (i + 1));
+    d.addEventListener("click", function(){ idx = i; render(); restart(); });
+    dotsBox.appendChild(d);
+    b.addEventListener("click", function(){ idx = i; render(); restart(); });
+  });
+  function freeze(){ var w = getComputedStyle(bar).width; bar.style.transition = "none"; bar.style.width = w; }
+  function run(){ bar.style.transition = "none"; bar.style.width = "0px"; void bar.offsetWidth;
+    bar.style.transition = "width " + MS + "ms linear"; bar.style.width = "100%"; }
+  function typeInto(el, text, speed, done){
+    el.textContent = ""; var i = 0;
+    typer = setInterval(function(){ i++; el.textContent = text.slice(0, i);
+      if (i >= text.length) { clearInterval(typer); typer = null; if (done) done(); } }, speed);
+  }
+  function render(){
+    if (typer) { clearInterval(typer); typer = null; }
+    win.dataset.step = idx;
+    win.classList.toggle("ok", idx === 6);
+    document.getElementById("ofLicTag").textContent = idx === 6 ? "Product Activated" : "Activation Required";
+    document.getElementById("ofStatusTxt").textContent = idx === 6 ? "Product Activated" : "Activation Required";
+    document.getElementById("ofFileTab").classList.toggle("hot", idx === 0);
+    cursor.style.left = POS[idx][0] + "%"; cursor.style.top = POS[idx][1] + "%";
+    document.getElementById("ofEmail").textContent = "";
+    document.getElementById("ofPass").textContent = "";
+    document.getElementById("ofKeyTxt").textContent = "";
+    if (idx === 4 && playing && !hover) {
+      setTimeout(function(){ if (idx !== 4) return;
+        typeInto(document.getElementById("ofEmail"), "yourname@outlook.com", 55, function(){
+          typeInto(document.getElementById("ofPass"), "••••••••", 70);
+        });
+      }, 650);
+    }
+    if (idx === 5 && playing && !hover) {
+      setTimeout(function(){ if (idx !== 5) return;
+        typeInto(document.getElementById("ofKeyTxt"), "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX", 42);
+      }, 650);
+    }
+    steps.forEach(function(b, i){ b.classList.toggle("act", i === idx); });
+    Array.prototype.forEach.call(dotsBox.children, function(d, i){ d.classList.toggle("act", i === idx); });
+    if (playing && !hover) run(); else freeze();
+    document.getElementById("ofPlay").textContent = playing ? "Pause" : "Play";
+  }
+  function restart(){ clearInterval(timer);
+    if (playing && !hover) timer = setInterval(function(){ idx = (idx + 1) % steps.length; render(); }, MS); }
+  document.getElementById("ofNext").addEventListener("click", function(){ idx = (idx + 1) % steps.length; render(); restart(); });
+  document.getElementById("ofPrev").addEventListener("click", function(){ idx = (idx - 1 + steps.length) % steps.length; render(); restart(); });
+  document.getElementById("ofPlay").addEventListener("click", function(){ playing = !playing; render(); restart(); });
+  card.addEventListener("mouseenter", function(){ hover = true; clearInterval(timer); if (typer) { clearInterval(typer); typer = null; } freeze(); });
+  card.addEventListener("mouseleave", function(){ hover = false; if (playing) { run(); restart(); } });
+  render(); restart();
+})();
+</script>
+</section></div></div><div class="frame" data-title="Full Specs" data-hash="specs" data-x="2200" data-y="3800" data-w="1240" data-h="780" data-r="-0.7" style="left:2200px;top:3800px;width:1240px;height:780px;transform:translate(-50%,-50%) rotate(-0.7deg)"><div class="ftag">11 - Full Specs</div><div class="scrollbox"><section id="specs">
 <div class="sec-head"><div class="kick">Full specifications</div>
 <h2>Every detail of your delivered set</h2>
 <p class="sub">The exact configuration supplied - desktop first, then the monitor. Type to search any line.</p></div>
@@ -1086,7 +1441,7 @@ how to set it up, how to use it every day, and how to look after it.</p>
 <tr class="spec-row"><th>In the Box</th><td>Monitor with stand, 1 x HDMI cable (1.8 m), 1 x Power cable (1.8 m), Quick setup guide</td></tr>
 </table></div></div></div>
 <p class="sub" id="noRes" style="display:none">No specification line matches that search. Clear the search to see everything again.</p>
-</section></div></div><div class="frame" data-title="Support" data-hash="support" data-x="2200" data-y="3800" data-w="1240" data-h="780" data-r="-0.7" style="left:2200px;top:3800px;width:1240px;height:780px;transform:translate(-50%,-50%) rotate(-0.7deg)"><div class="ftag">11 - Support</div><div class="scrollbox"><section id="support">
+</section></div></div><div class="frame" data-title="Support" data-hash="support" data-x="3700" data-y="3800" data-w="1240" data-h="780" data-r="0.9" style="left:3700px;top:3800px;width:1240px;height:780px;transform:translate(-50%,-50%) rotate(0.9deg)"><div class="ftag">12 - Support</div><div class="scrollbox"><section id="support">
 <div class="sec-head"><div class="kick">Support</div>
 <h2>Service and warranty</h2>
 <p class="sub">Keep this guide with the PC - it identifies your exact model and configuration.</p></div>
@@ -1098,7 +1453,7 @@ how to set it up, how to use it every day, and how to look after it.</p>
 <footer><div class="wrap">
 <p><b>Lenovo ThinkCentre M90q Gen 5 Tiny + ThinkVision E20-30</b> - user guide and product presentation for the delivered configuration, MTM 12THS0EW00. Supplied by Abans PLC.</p>
 <p style="margin-top:8px">Sources: Lenovo MTM configuration (BOM) for 12THS0EW00, generated 2025-12-05 - Lenovo PSREF, ThinkCentre M90q Gen 5, February 04 2026 - Lenovo PSREF, ThinkVision E20-30 Monitor, April 18 2025. Product images are from the Lenovo PSREFs. Specifications are for these configured models only and are subject to change by Lenovo without notice.</p>
-</div></footer></section></div></div></div></div><div id="caption"></div><div id="dock"><button class="nav-btn ghost" id="prevBtn" type="button">&#8249; Prev</button><button class="nav-btn ghost" id="overBtn" type="button">Overview</button><div id="counter">1 / 11</div><button class="nav-btn ghost" id="playBtn" type="button">Play</button><button class="nav-btn" id="nextBtn" type="button">Next &#8250;</button></div><div id="dots"></div><div id="progress"></div><style>
+</div></footer></section></div></div></div></div><div id="caption"></div><div id="dock"><button class="nav-btn ghost" id="prevBtn" type="button">&#8249; Prev</button><button class="nav-btn ghost" id="overBtn" type="button">Overview</button><div id="counter">1 / 12</div><button class="nav-btn ghost" id="playBtn" type="button">Play</button><button class="nav-btn" id="nextBtn" type="button">Next &#8250;</button></div><div id="dots"></div><div id="progress"></div><style>
 #stage{position:fixed;inset:0;overflow:hidden}
 #world{position:absolute;left:0;top:0;transform-origin:0 0;transition:transform 1.25s cubic-bezier(.72,0,.18,1);will-change:transform}
 .frame{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:26px;
@@ -1239,6 +1594,8 @@ sGo(startIdx >= 0 ? startIdx : 0);
 
 
 <main class="wrap">
+
+
 
 
 
